@@ -31,10 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed, watch, onMounted, ref, onUpdated, nextTick } from 'vue';
-import _ from 'lodash';
-import { useRoute, useRouter } from 'vue-router';
-import { useUserStore } from "@/stores/UserStore";
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { useUserStore } from "@/projects/users/store/UserStore";
 
 //Get the users from the store.
 const userStore = useUserStore();

@@ -1,5 +1,5 @@
 // 1 step: import the router link into our app
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/Home.vue';
 import Parent from '@/projects/counter/Parent.vue';
 import UserList from '@/projects/users/UserList.vue';
@@ -20,23 +20,15 @@ const routes = [
         component: Parent
     },
     {
+        path: '/users/:id',
+        name: 'user',
+        component: UserEdit
+    },
+    {
         path: '/users',
         name: 'users',
         component: UserList
-    },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // },
-    // {
-    //     path: '/users/:id',
-    //     name: 'user',
-    //     component: UserEdit
-    // }
+    }
     
 ];
 
@@ -51,7 +43,7 @@ const router = createRouter({
      * url will be '/about'.
      * Web hash history will use # in url. If we go to About page, the url will be '/#/about'.
      */
-    history: createWebHashHistory(),
+    history: createWebHistory(),
 
     /**
      * This here is routes: routes.
