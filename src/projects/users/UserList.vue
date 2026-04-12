@@ -2,7 +2,7 @@
     <h1>Users</h1>
 
     <!-- TABLE -->
-    <!-- <el-table 
+    <el-table 
         :data="userStore.users" 
         stripe 
         border 
@@ -38,25 +38,25 @@
                 </el-button>
             </template>
         </el-table-column>
-    </el-table> -->
+    </el-table>
 
 </template>
 
 <script setup lang="ts">
-// import { reactive, computed, watch, onMounted, ref, onUpdated, nextTick } from "vue";
-// import { useUserStore } from "@/stores/UserStore";
+import { reactive, computed, watch, onMounted, ref, onUpdated, nextTick } from "vue";
+import { useUserStore } from "@/projects/users/store/UserStore.ts";
 
-// //Get the users from the store.
-// const userStore = useUserStore();
+//Get the users from the store.
+const userStore = useUserStore();
 
-// onMounted(async () => {
-//     // console.log("onMounted.");
-//     userStore.getUsers();
-// });
+onMounted(async () => {
+    // console.log("onMounted.");
+    userStore.getUsers();
+});
 
-// const deleteUser = (id: number) => {
-//     userStore.deleteUser(id);
-// };
+const deleteUser = (id: number) => {
+    userStore.deleteUser(id);
+};
 
 </script>
 

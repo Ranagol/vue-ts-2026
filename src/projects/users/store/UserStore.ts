@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia';
-import type { User } from "../types/interfaces";//Notice the import type!!!
-import userService from "../services/UserService";
+import type { User } from "@/projects/users/types/interfaces";//Notice the import type!!!
+import userService from "@/projects/users/services/UserService";
 import { h } from 'vue'
 import { ElNotification } from 'element-plus'
 
-export const useUserStore = defineStore({
-    id: 'user',
+export const useUserStore = defineStore('user', {
 
     //This is the Pinia state
     state: () => ({
