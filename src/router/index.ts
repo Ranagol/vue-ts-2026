@@ -2,6 +2,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '@/Home.vue';
 import Parent from '@/projects/counter/Parent.vue';
+import UserList from '@/projects/users/UserList.vue';
+import UserEdit from '../views/users/UserEdit.vue';
 
 /**
  * 3 step: now we add our routes for our app. For each route we must add an object, with some options.
@@ -17,6 +19,25 @@ const routes = [
         name: 'counter',
         component: Parent
     },
+    {
+        path: '/users',
+        name: 'users',
+        component: UserList
+    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (About.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import('../views/AboutView.vue')
+    // },
+    // {
+    //     path: '/users/:id',
+    //     name: 'user',
+    //     component: UserEdit
+    // }
+    
 ];
 
 /**

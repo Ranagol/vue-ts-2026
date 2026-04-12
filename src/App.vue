@@ -5,6 +5,7 @@
             <div class="nav-links">
                 <RouterLink to="/" class="nav-link">Home</RouterLink>
                 <RouterLink to="/counter" class="nav-link">Counter</RouterLink>
+                <RouterLink to="/users" class="nav-link">Users</RouterLink>
             </div>
         </nav>
 
@@ -18,7 +19,6 @@
 import { reactive } from 'vue';
 
 let data = reactive({
-    count: 0
 });
 </script>
 
