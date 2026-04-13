@@ -23,11 +23,15 @@
         >Create</button>
     </div>
 
+    <!-- Search bar for listing todos -->
+    <h3>Search</h3>
+    <input v-model="data.searchTerm" type="text">
+
     <!-- List todos -->
     <h3>List todos</h3>
     <div>
         <div
-            v-for="todo in data.todos"
+            v-for="todo in data.filteredTodos"
             :key="todo.description"
         >
             <input v-model="todo.description" type="text">
@@ -38,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, watch, onMounted } from 'vue';
 
 interface Todo {
     description: string
@@ -46,11 +50,13 @@ interface Todo {
 }
 
 let data = reactive({
+    searchTerm: null as null|string,
     todos: [] as Todo[],
     todo: {
         description: 'Initial text',
         done: false
-    } as Todo
+    } as Todo,
+    filteredTodos: [] as Todo[] | []
 });
 
 const create = () => {
@@ -65,6 +71,46 @@ const create = () => {
     }
 }
 
+const filterTodos = (searchTerm: string|null) => {
+    if (searchTerm === null) {
+        data.filteredTodos = data.todos;
+        return;
+    }
+
+    let filteredTodos = data.todos.filter( 
+        todo => (todo.description.toLowerCase()).includes(searchTerm.toLowerCase())
+    );
+    data.filteredTodos = {...filteredTodos};
+} 
+
+// This triggers todo filtering on every search term input or change
+watch(
+    () => data.searchTerm,
+    (newSearchTerm) => {
+        console.log('newSearchTerm:', newSearchTerm);
+        filterTodos(newSearchTerm);
+    }
+);
+
+//Get todos from localStorage
+onMounted(() => {
+    const saved = localStorage.getItem('todoArray');
+    if (saved) {
+        console.log('saved:', saved)
+        data.todos = JSON.parse(saved);
+        filterTodos(null);
+    }
+});
+
+// Save todos to localStorage
+watch(
+    () => data.todos,
+    (newValue) => {
+        console.log('newValue:', newValue)
+        localStorage.setItem('todoArray', JSON.stringify(newValue));
+    },
+    { deep: true }
+);
 
 
 
