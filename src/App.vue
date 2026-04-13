@@ -6,6 +6,7 @@
                 <RouterLink to="/" class="nav-link">Home</RouterLink>
                 <RouterLink to="/counter" class="nav-link">Counter</RouterLink>
                 <RouterLink to="/users" class="nav-link">Users</RouterLink>
+                <RouterLink to="/todo" class="nav-link">Todo</RouterLink>
             </div>
         </nav>
 
@@ -16,10 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
 
-let data = reactive({
-});
 </script>
 
 <style scoped>
