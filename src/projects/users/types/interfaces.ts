@@ -2,7 +2,7 @@
  * Here we define all our types. We work with users, and every user has an address and a company.
  * See below how these types are defined.
  */
-// Here is how one User object looks like:
+// Here is how one full User object looks like, with all nested properties:
 // {
 //     "id": 1,
 //     "name": "Leanne Graham",

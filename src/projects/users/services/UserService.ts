@@ -10,7 +10,7 @@ class UserService {
 
     /**
      * The function that calls this getUsers() also must use async/await!!!
-     * Here we do not use try/catch block, because we want to handle the error in the component.
+     * Here we do not use try/catch block, because we want to handle the error in other place.
      * 
      * @returns Promise<User[]>
      */
@@ -20,9 +20,6 @@ class UserService {
     }
 
     /**
-     * The function that calls this getUserById() also must use async/await!!!
-     * Here we do not use try/catch block, because we want to handle the error in the component.
-     * 
      * @param id number
      * @returns Promise<User>
      */
@@ -31,14 +28,23 @@ class UserService {
         return response.data as User;
     }
 
+    /**
+     * Updates a user.
+     * @param user User object with updated data
+     * @returns Promise<User>
+     */
     public async updateUser(user: User): Promise<User> {
         const response = await AxiosService.put(`/users/${user.id}`, user);
         return response.data as User;
     }
 
+    /**
+     * Deletes a user by ID.
+     * @param id User ID
+     * @returns Promise<void>
+     */
     public async deleteUser(id: number): Promise<void> {
-        const response = await AxiosService.delete(`/users/${id}`);
-        return response.data;
+        await AxiosService.delete(`/users/${id}`);
     }
 }
 

@@ -1,7 +1,8 @@
 <template>
-    <h3>Todos</h3>
+    <h2>Todos</h2>
 
     <!-- Create todos -->
+    <h3>Create todo</h3>
     <div>
         <label for="description">Description</label>
         <input
@@ -31,11 +32,12 @@
     <h3>List todos</h3>
     <div>
         <div
-            v-for="todo in data.filteredTodos"
-            :key="todo.description"
+            v-for="(todo, index) in data.filteredTodos"
+            :key="index"
         >
             <input v-model="todo.description" type="text">
             <input v-model="todo.done" type="checkbox">
+            <button @click="deleteTodo(todo.description)">X</button>
         </div>
     </div>
     
@@ -53,7 +55,7 @@ let data = reactive({
     searchTerm: null as null|string,
     todos: [] as Todo[],
     todo: {
-        description: 'Initial text',
+        description: '',
         done: false
     } as Todo,
     filteredTodos: [] as Todo[] | []
@@ -71,6 +73,15 @@ const create = () => {
     }
 }
 
+const deleteTodo = (description: string) => {
+    data.todos = data.todos.filter(
+        //filter out those todos, whose description is !== to description
+        todo => todo.description !== description
+    );
+    //refresh filtered todos
+    filterTodos(null);
+}
+
 const filterTodos = (searchTerm: string|null) => {
     if (searchTerm === null) {
         data.filteredTodos = data.todos;
@@ -80,7 +91,7 @@ const filterTodos = (searchTerm: string|null) => {
     let filteredTodos = data.todos.filter( 
         todo => (todo.description.toLowerCase()).includes(searchTerm.toLowerCase())
     );
-    data.filteredTodos = {...filteredTodos};
+    data.filteredTodos = filteredTodos;
 } 
 
 // This triggers todo filtering on every search term input or change

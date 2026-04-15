@@ -22,3 +22,7 @@ Simple counter for practising basic Vue features.
 
 This app is used for practising TypeScript. The goal is to create a basic CRUD system, that displays users from baseURL: 'https://jsonplaceholder.typicode.com/'.
 https://jsonplaceholder.typicode.com/. This api will return automatically users, contacts, companies. Nice for playing around.
+
+### Todo list
+Lists can be CRUD. Lists are also stored in localStorage, so when the page is refreshed, they stay
+'remembered'.

@@ -7,6 +7,7 @@
                 <RouterLink to="/counter" class="nav-link">Counter</RouterLink>
                 <RouterLink to="/users" class="nav-link">Users</RouterLink>
                 <RouterLink to="/todo" class="nav-link">Todo</RouterLink>
+                <RouterLink to="/playground" class="nav-link">Playground</RouterLink>
             </div>
         </nav>
 
