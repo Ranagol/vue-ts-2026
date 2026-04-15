@@ -1,35 +1,57 @@
+<template>
+    <div>
+        <p>Count: {{ count }}</p>
+
+        <!-- ❗ Task: show computed label here -->
+        <p>Status: {{ status }}</p>
+
+        <button @click="onClick">Increase</button>
+    </div>
+</template>
+
 <script
     setup
     lang="ts"
 >
-import { ref, watch } from "vue";
 
-interface Props {
-    value: string;
-    maxLength?: number;
-}
-
-const props = defineProps<Props>();
-
-const emit = defineEmits<{
-    (e: "update:value", value: string): void;
+const props = defineProps<{
+    count: number;
 }>();
 
-// ✅ internal state
-const inputValue = ref<string>(props.value);
+const step = 5;
 
-// ✅ TODO 1: watch for prop changes
-// sync props.value -> inputValue
-
-// ✅ TODO 2: handle input event
-function onInput(event: Event) {
-    // 1. get value from input
-    // 2. apply maxLength if exists
-    // 3. update inputValue
-    // 4. emit "update:value"
+const onClick = () => {
+    emit('increment', step);
 }
-</script>
 
-<template>
-    <input :value="inputValue" @input="onInput" />
-</template>
+const status = computed(
+    () => {
+        if (props.count < 10) {
+            return 'Low';
+        } 
+        return 'High';
+        
+    }
+);
+
+// ❗ TASK:
+// Add a watch that logs to console:
+// "Count changed: X"
+watch(
+    () => props.count,
+    (newValue, oldValue) => {
+        console.log("Count changed from", oldValue, "to", newValue);
+    }
+);
+
+
+/**
+ * EMIT
+ * In the <template> section we must use $emit. Example: @click="$emit('increment')".
+ * In a function, we use the emit without the $ sign. Example: emit('increment').
+ */
+const emit = defineEmits<{
+    (e: "increment", step: number): void;    
+}>();
+
+</script>

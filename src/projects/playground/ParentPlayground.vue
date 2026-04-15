@@ -1,21 +1,22 @@
 <template>
-    <div>
-        <BaseInput v-model:value="username" :maxLength="10" />
+    <ChildPlayground
+        :count="count"
+        @increment="increase"
+    />
 
-        <p>Parent value: {{ username }}</p>
-
-        <!-- simulate external change -->
-        <button @click="username = 'Changed from parent'">
-            Change from parent
-        </button>
-    </div>
+   
 </template>
 
 <script
     setup
     lang="ts"
 >
-import { ref } from "vue";
+import ChildPlayground from './ChildPlayground.vue';
 
-const username = ref<string>("Hello");
+const count = ref(0)
+
+const increase = (step: number) => {
+  count.value = count.value + step;
+}
+
 </script>

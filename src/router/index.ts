@@ -6,6 +6,7 @@ import UserList from '@/projects/users/UserList.vue';
 import UserEdit from '../views/users/UserEdit.vue';
 import Todo from '@/projects/todo/Todo.vue';
 import ParentPlayground from '@/projects/playground/ParentPlayground.vue';
+import ParentTemplate from '@/projects/template/ParentTemplate.vue';
 
 /**
  * 3 step: now we add our routes for our app. For each route we must add an object, with some options.
@@ -40,6 +41,11 @@ const routes = [
         path: '/playground',
         name: 'playground',
         component: ParentPlayground
+    },
+    {
+        path: '/template',
+        name: 'template',
+        component: ParentTemplate
     }
     
 ];
