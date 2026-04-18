@@ -22,9 +22,13 @@ import { reactive, computed, watch, onMounted } from "vue";
 /**
  * PROPS
  */
-const props = defineProps<{
-    initialValue: number;
-}>();
+const props = withDefaults(defineProps<{
+    //Here we set types and names for props, notice the '?'
+    initialValue?: number;
+}>(), {
+    //Here we set default values for props
+    initialValue: 1
+});
 
 /**
  * DATA

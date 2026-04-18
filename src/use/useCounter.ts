@@ -1,35 +1,27 @@
-import { computed, reactive } from "vue";
 
-export function useCounter(initialValue: number, step?: number) {
+export function useCounter(initialValue: number) {
 
-    let data = reactive({
-        count: initialValue,
-        stepValue: step ?? 1
-    })
-
-    const double = computed(() => {
-        return data.count * 2;
-    });
+    const count = ref<number>(initialValue);
 
     function increment() {
-        data.count = data.count + data.stepValue;
+        count.value ++;
     }
 
-    function decrement() {
-        data.count = data.count - data.stepValue;
-    }
+    const double = computed(
+        () => count.value * 2
+    )
 
-    /**
-     * There is a trick here... 
-     * count: data.count ---> this we can not do here. That will only return the current value, but
-     * not a reactive thingy. As soon as we increase/decrese, this will not change! Not reactive!
-     * So, to make data.count reactive in the composable return function, we use here a computed,
-     * that listens for changes in data.count, and as soon there is a change it returns the new value.
-     */
+    watch(
+        () => count.value,
+        (newValue, oldValue) => {
+            console.log("Count changed from", oldValue, "to", newValue);
+        }
+    );
+
+   
     return {
-        count: computed(() => data.count),
-        double,
+        count,
         increment,
-        decrement
+        double,
     };
 }
