@@ -1,16 +1,7 @@
 <template>
-    <component
-        :is="currentComponent"
-        :title="title"
-    />
+    <component :is="currentComponent" :title="title" />
 
-    <button
-        @click="fetchTodo"
-        :disabled="isLoading"
-    >Reload</button>
-
-
-    
+    <button @click="fetchTodo" :disabled="isLoading">Reload</button>
 </template>
 
 <script
@@ -38,4 +29,4 @@ const currentComponent = computed(() => {
 });
 
 
-</script>
+</script>]]

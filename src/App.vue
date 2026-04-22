@@ -2,7 +2,7 @@
     <div class="app-container">
         <nav class="navbar">
             <div class="navbar-brand">MyApp</div>
-            <div class="nav-links">
+            <div class="nav-links flex flex-wrap">
                 <RouterLink to="/" class="nav-link">Home</RouterLink>
                 <RouterLink to="/counter" class="nav-link">Counter</RouterLink>
                 <RouterLink to="/users" class="nav-link">Users</RouterLink>
@@ -10,7 +10,7 @@
                 <RouterLink to="/playground" class="nav-link">Playground</RouterLink>
                 <RouterLink to="/template" class="nav-link">Template</RouterLink>
                 <RouterLink to="/todo-crud" class="nav-link">Todo CRUD</RouterLink>
-
+                <RouterLink to="/tailwind" class="nav-link">Tailwind</RouterLink>
             </div>
         </nav>
 

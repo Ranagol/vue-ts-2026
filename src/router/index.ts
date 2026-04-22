@@ -7,6 +7,7 @@ import UserEdit from '../views/users/UserEdit.vue';
 import Todo from '@/projects/todo/Todo.vue';
 import ParentPlayground from '@/projects/playground/ParentPlayground.vue';
 import ParentTemplate from '@/projects/template/ParentTemplate.vue';
+import Tailwind from '@/projects/tailwind/Tailwind.vue';
 
 /**
  * 3 step: now we add our routes for our app. For each route we must add an object, with some options.
@@ -43,10 +44,17 @@ const routes = [
         component: ParentPlayground
     },
     {
+        // This is for my template from Vue puska, to have a working example
         path: '/template',
         name: 'template',
         component: ParentTemplate
-    }
+    },
+    {
+        path: '/tailwind',
+        name: 'tailwind',
+        component: Tailwind
+    },
+
     
 ];
 
