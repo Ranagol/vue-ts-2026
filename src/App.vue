@@ -12,6 +12,9 @@
                 <RouterLink to="/todo-crud" class="nav-link">Todo CRUD</RouterLink>
                 <RouterLink to="/tailwind" class="nav-link">Tailwind</RouterLink>
             </div>
+            <div>
+                <DarkModeSwitch/>
+            </div>
         </nav>
 
         <main class="content">
@@ -21,6 +24,8 @@
 </template>
 
 <script setup lang="ts">
+import DarkModeSwitch from './projects/darkMode/DarkModeSwitch.vue';
+
 
 </script>
 
