@@ -1,8 +1,9 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import 'element-plus/dist/index.css'//Element Plus CSS must be before our CSS
+import 'element-plus/theme-chalk/dark/css-vars.css'//Dark theme importing
+import './style.css'// our custom CSS must be after Element Plus CSS
 import { createPinia } from 'pinia'
 
 /**

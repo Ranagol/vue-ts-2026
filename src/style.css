@@ -1,3 +1,48 @@
-@import "tailwindcss";
+@import "tailwindcss";/*First comes Tailwind CSS*/
+
+/*And after comes our custom CSS. This way we can overwrite Tailwind too.*/
+
+:root {
+  /* MAIN BRAND COLOR (affects buttons, focus, highlights everywhere) */
+  --el-color-primary: #22c55e;
+
+    /* SUCCESS STATE (alerts, badges, confirmations) */
+  --el-color-success: #67c23a;
+
+  /* WARNING STATE (warnings, notices) */
+  --el-color-warning: #e6a23c;
+
+  /* ERROR STATE (validation errors, danger buttons) */
+  --el-color-danger: #f56c6c;
+
+  /* NEUTRAL INFO COLOR */
+  --el-color-info: #909399;
+
+    /* MAIN TEXT COLOR (most important text) */
+  --el-text-color-primary: #5707bf;
+
+  /* NORMAL TEXT (secondary content, labels) */
+  --el-text-color-regular: #1e0bb0;
+
+  /* LESS IMPORTANT TEXT (hints, descriptions) */
+  --el-text-color-secondary: #0945bf;
+
+  /* PLACEHOLDER TEXT (inputs) */
+  --el-text-color-placeholder: #dc4e0c;
+
+    /* MAIN BACKGROUND (cards, inputs, surfaces) */
+  --el-bg-color: #cd0b86;
+
+  /* PAGE BACKGROUND (outer app background) */
+  --el-bg-color-page: #d10987;
+
+  /* LIGHT SURFACES (hover areas, subtle backgrounds) */
+  --el-fill-color-light: #bf08a0;
+
+  --el-input-bg-color: #cd0b86;
+
+  --el-fill-color-blank: red;
+}
+
 
 
